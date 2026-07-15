@@ -128,7 +128,7 @@ PCSX5 requires PS5 system modules (firmware) to run games. **You must dump these
 | `libSceVideoOut*.sprx` | Video output modules |
 | `libScePad*.sprx` | Controller input modules |
 | `libSceGnm*.sprx` | Graphics API (GNM) modules |
-| ...and more | See [PCSX5 docs](https://github.com/PCSX5/PCSX5/wiki/Firmware) for full list |
+| ...and more | See [PCSX5 docs](https://github.com/Abhishekrazy/PCSX5/wiki/Firmware) for full list |
 
 > ⚠️ **Legal:** Do not download firmware from the internet. Dump from your own console. Sharing Sony's proprietary firmware is illegal.
 
@@ -196,8 +196,7 @@ Sample Rate = 48000
 
 | Project | Description |
 |---------|-------------|
-| **[PCSX5](https://github.com/PCSX5/PCSX5)** | Main emulator repository |
-| **[PCSX5-QtLauncher](https://github.com/PCSX5/PCSX5-QtLauncher)** | Official GUI launcher |
+| **[PCSX5](https://github.com/Abhishekrazy/PCSX5)** | Main emulator repository |
 | **[shadPS4 Compatibility](https://github.com/shadps4-compatibility/shadps4-game-compatibility)** | PS4 compatibility reference |
 | **[RPCS3 Compatibility](https://github.com/RPCS3/compatibility)** | PS3 compatibility database |
 
