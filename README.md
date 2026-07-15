@@ -25,9 +25,9 @@ Track which games boot, which reach menus, which are playable, and what issues r
 | **Browse All Reports** | [Issues](https://github.com/Abhishekrazy/Pcsx5-Game-Compatibility/issues) |
 | **Playable Games** | [label:status-playable](https://github.com/Abhishekrazy/Pcsx5-Game-Compatibility/issues?q=label%3Astatus-playable) |
 | **In-Game** | [label:status-ingame](https://github.com/Abhishekrazy/Pcsx5-Game-Compatibility/issues?q=label%3Astatus-ingame) |
-| **PCSX5 Emulator** | [github.com/PCSX5/PCSX5](https://github.com/PCSX5/PCSX5) |
+| **PCSX5 Emulator** | [github.com/PCSX5/PCSX5](https://github.com/Abhishekrazy/pcsx5) |
 | **PCSX5 Discord** | [discord.gg/pcsx5](https://discord.gg/pcsx5) |
-| **Download Latest Build** | [PCSX5 Releases](https://github.com/PCSX5/PCSX5/releases) |
+| **Download Latest Build** | [PCSX5 Releases](https://github.com/Abhishekrazy/pcsx5/releases) |
 
 ---
 
