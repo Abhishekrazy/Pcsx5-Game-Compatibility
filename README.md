@@ -43,7 +43,6 @@ Track which games boot, which reach menus, which are playable, and what issues r
 | ![Boots](https://img.shields.io/badge/Boots-1-d4c5f9?style=flat-square) | 1 | 0.1% |
 | ![Nothing](https://img.shields.io/badge/Nothing-1860-ededed?style=flat-square) | 1860 | 99.9% |
 | **Total** | **1861** | **100%** |
-| **Total** | **60** | **100%** |
 
 > 📈 *Last updated: 2026-07-16 • [Refresh stats](https://github.com/Abhishekrazy/Pcsx5-Game-Compatibility/actions/workflows/update-stats.yml)*
 

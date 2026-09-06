@@ -123,14 +123,14 @@ jobs:
           new_table = '\n'.join(table_lines)
           new_table += f'\n| **Total** | **{total}** | **100%** |'
 
-          # Replace the table in README
-          pattern = r'(\| Status \| Count \| Percentage \|\n\|[-|]+\|\n)(.*?)(\n\| \*\*Total\*\*)'
-          replacement = r'\1' + new_table + r'\3'
-          content = re.sub(pattern, replacement, content, flags=re.DOTALL)
+          # Replace the whole table body (all rows after the header/separator,
+          # including any Total rows) so runs cannot duplicate the Total line.
+          pattern = r'(\| Status \| Count \| Percentage \|\n\|[-|]+\|\n)(?:\|[^\n]*\n)*'
+          content = re.sub(pattern, lambda m: m.group(1) + new_table + '\n', content)
 
           # Update last updated date
           content = re.sub(
-              r'> 📈 \*Last updated: .*? \*',
+              r'> 📈 \*Last updated:[^\n]*',
               f'> 📈 *Last updated: {datetime.utcnow().strftime("%Y-%m-%d")} • [Refresh stats](https://github.com/{os.environ["REPO"]}/actions/workflows/update-stats.yml)*',
               content
           )
