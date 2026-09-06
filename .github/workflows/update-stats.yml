@@ -102,7 +102,7 @@ jobs:
           stats = json.loads(os.environ['STATS_JSON'])
           total = int(os.environ['TOTAL'])
 
-          with open('COMPATIBILITY_README.md', 'r') as f:
+          with open('README.md', 'r') as f:
               content = f.read()
 
           # Update the stats table
@@ -135,7 +135,7 @@ jobs:
               content
           )
 
-          with open('COMPATIBILITY_README.md', 'w') as f:
+          with open('README.md', 'w') as f:
               f.write(content)
 
           print('README updated successfully')
@@ -148,7 +148,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add COMPATIBILITY_README.md
+          git add README.md
           git diff --staged --quiet || git commit -m "chore: update compatibility stats [skip ci]"
           git push
         env:
