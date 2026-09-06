@@ -37,11 +37,12 @@ Track which games boot, which reach menus, which are playable, and what issues r
 
 | Status | Count | Percentage |
 |--------|-------|------------|
-| ![Playable](https://img.shields.io/badge/Playable-0-0e8a16?style=flat-square) | 0 | 0% |
-| ![In-Game](https://img.shields.io/badge/In--Game-0-fbca04?style=flat-square) | 0 | 0% |
-| ![Menus](https://img.shields.io/badge/Menus-0-f9d0c4?style=flat-square) | 0 | 0% |
-| ![Boots](https://img.shields.io/badge/Boots-0-d4c5f9?style=flat-square) | 0 | 0% |
-| ![Nothing](https://img.shields.io/badge/Nothing-60-ededed?style=flat-square) | 60 | 100% |
+| ![Playable](https://img.shields.io/badge/Playable-0-0e8a16?style=flat-square) | 0 | 0.0% |
+| ![In-Game](https://img.shields.io/badge/In-Game-0-fbca04?style=flat-square) | 0 | 0.0% |
+| ![Menus](https://img.shields.io/badge/Menus-0-f9d0c4?style=flat-square) | 0 | 0.0% |
+| ![Boots](https://img.shields.io/badge/Boots-1-d4c5f9?style=flat-square) | 1 | 0.1% |
+| ![Nothing](https://img.shields.io/badge/Nothing-1860-ededed?style=flat-square) | 1860 | 99.9% |
+| **Total** | **1861** | **100%** |
 | **Total** | **60** | **100%** |
 
 > 📈 *Last updated: 2026-07-16 • [Refresh stats](https://github.com/Abhishekrazy/Pcsx5-Game-Compatibility/actions/workflows/update-stats.yml)*
