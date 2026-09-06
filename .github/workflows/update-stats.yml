@@ -25,10 +25,6 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install dependencies
-        run: |
-          pip install requests
-
       - name: Fetch issue statistics
         id: stats
         env:
@@ -36,59 +32,42 @@ jobs:
           REPO: ${{ github.repository }}
         run: |
           python << 'EOF'
-          import os
-          import requests
-          import json
+          # Stdlib only - no pip install, so nothing to cache or fetch.
+          import os, json, urllib.request, urllib.parse
 
           repo = os.environ['REPO']
           token = os.environ['GITHUB_TOKEN']
-          headers = {'Authorization': f'token {token}', 'Accept': 'application/vnd.github+json'}
-
           labels = {
               'status-playable': 'Playable',
               'status-ingame': 'In-Game',
               'status-menus': 'Menus',
               'status-boots': 'Boots',
-              'status-nothing': 'Nothing'
+              'status-nothing': 'Nothing',
           }
 
-          stats = {}
-          total = 0
+          def count(label):
+              q = urllib.parse.quote(f'repo:{repo} label:"{label}"')
+              url = f'https://api.github.com/search/issues?q={q}&per_page=1'
+              req = urllib.request.Request(url, headers={
+                  'Authorization': f'token {token}',
+                  'Accept': 'application/vnd.github+json',
+                  'User-Agent': 'pcsx5-compat-stats',
+              })
+              with urllib.request.urlopen(req) as resp:
+                  return json.load(resp)['total_count']
 
+          stats, total = {}, 0
           for label, name in labels.items():
-              url = f'https://api.github.com/repos/{repo}/issues'
-              params = {'labels': label, 'state': 'all', 'per_page': 1}
-              resp = requests.get(url, headers=headers, params=params)
-              resp.raise_for_status()
-              # Get total count from Link header
-              link = resp.headers.get('Link', '')
-              if 'rel="last"' in link:
-                  import re
-                  match = re.search(r'page=(\d+)>; rel="last"', link)
-                  if match:
-                      count = int(match.group(1)) * 100  # approximation
-                  else:
-                      count = len(resp.json())
-              else:
-                  count = len(resp.json())
-              
-              # More accurate: use search API
-              search_url = f'https://api.github.com/search/issues'
-              search_params = {'q': f'repo:{repo} label:"{label}"', 'per_page': 1}
-              search_resp = requests.get(search_url, headers=headers, params=search_params)
-              search_resp.raise_for_status()
-              count = search_resp.json()['total_count']
-              
-              stats[name] = count
-              total += count
-              print(f'{name}: {count}')
-
+              c = count(label)
+              stats[name] = c
+              total += c
+              print(f'{name}: {c}')
           print(f'Total: {total}')
 
-          # Output for next step
           with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
               f.write(f'stats={json.dumps(stats)}\n')
               f.write(f'total={total}\n')
+          EOF
 
       - name: Update README with stats
         if: steps.stats.outputs.stats != ''
